@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<mct:Popup xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:mct="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="MauiMovies.MovieDetailsPopup"
+             Size="600,600">
+    <VerticalStackLayout Spacing="20" Padding="20">
+        <Image Source="{Binding PosterUrl}"
+               HeightRequest="300"
+               Aspect="AspectFit" />
+
+        <FlexLayout JustifyContent="SpaceBetween">
+            <Label Text="{Binding Title}" FontAttributes="Bold" />
+            <Label HorizontalTextAlignment="End" Text="{Binding Rating, StringFormat='{0:N1} *'}" />
+        </FlexLayout>
+        <FlexLayout BindableLayout.ItemsSource="{Binding Genres}"
+                    JustifyContent="SpaceEvenly"
+                    Wrap="Wrap">
+            <Label Text="{Binding .}" />
+        </FlexLayout>
+    </VerticalStackLayout>
+</mct:Popup>
